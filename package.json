@@ -1,0 +1,24 @@
+{
+  "name": "scms-service-center-management-system",
+  "version": "1.0.0",
+  "description": "Full-stack Service Center Management System inspired by Samsung Customer Care",
+  "scripts": {
+    "backend:dev": "npm --prefix backend run dev",
+    "backend:start": "npm --prefix backend start",
+    "frontend:dev": "npm --prefix frontend run dev",
+    "frontend:build": "npm --prefix frontend run build",
+    "seed": "npm --prefix backend run seed",
+    "test": "npm --prefix backend run test:auth && npm --prefix backend run test:api"
+  },
+  "keywords": [
+    "scms",
+    "samsung-care",
+    "repair-management",
+    "service-center",
+    "react",
+    "express",
+    "sequelize"
+  ],
+  "author": "Sharoz",
+  "license": "ISC"
+}

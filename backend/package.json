@@ -1,0 +1,38 @@
+{
+  "name": "scms-backend",
+  "version": "1.0.0",
+  "description": "Service Center Management System - Backend API",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "seed": "node src/seeders/seed.js",
+    "test:auth": "node tests/test_auth.js",
+    "test:api": "node tests/test_core_api.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-validator": "^7.1.0",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^6.9.13",
+    "pg": "^8.11.5",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.3",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "keywords": [
+    "scms",
+    "service-center",
+    "express",
+    "sequelize"
+  ],
+  "author": "Sharoz",
+  "license": "ISC"
+}
