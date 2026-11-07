@@ -6,6 +6,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-v3.4-38B2AC.svg)](https://tailwindcss.com/)
 [![Express](https://img.shields.io/badge/Express-REST_API-lightgrey.svg)](https://expressjs.com/)
 [![Sequelize ORM](https://img.shields.io/badge/Sequelize-ORM-52B0E7.svg)](https://sequelize.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-v14%2B-336791.svg)](https://www.postgresql.org/)
 [![Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)]()
 
 ---
@@ -107,6 +108,8 @@ For testing and demonstration, the database includes pre-seeded demo accounts:
 ### Prerequisites
 - [Node.js](https://nodejs.org/) v18.0.0 or higher
 - npm v9+
+- [PostgreSQL](https://www.postgresql.org/) v14+ (or cloud instance via Supabase / Neon)
+- [pgAdmin 4](https://www.pgadmin.org/) *(Optional, recommended visual GUI)*
 
 ### 1. Installation
 
@@ -121,15 +124,39 @@ cd ../frontend
 npm install
 ```
 
-### 2. Database Seeding (Demo Data)
-Populate the database with realistic demo data (4 staff users, 10 Indian customers, 15 Samsung devices, 30 inventory parts, 20 tickets across all statuses, timelines, and invoices):
+### 2. Database & Environment Configuration
+
+1. **Create the PostgreSQL Database:**
+   ```bash
+   psql -U postgres -c "CREATE DATABASE scms_db;"
+   ```
+
+2. **Configure Environment Variables (`backend/.env`):**
+   ```env
+   PORT=5000
+   NODE_ENV=development
+   JWT_SECRET=your-secret-key-change-in-production
+   JWT_EXPIRES_IN=24h
+
+   # Database Configuration (PostgreSQL)
+   DB_DIALECT=postgres
+   DB_HOST=localhost
+   DB_PORT=5432
+   DB_NAME=scms_db
+   DB_USER=postgres
+   DB_PASSWORD=your_postgres_password
+   ```
+   *(Note: SCMS also retains zero-dependency offline fallback to SQLite by setting `DB_DIALECT=sqlite`)*
+
+### 3. Database Seeding (Demo Data)
+Populate PostgreSQL with realistic demo data (4 staff users, 10 Indian customers, 15 Samsung devices, 30 inventory parts, 20 tickets across all statuses, timelines, and invoices):
 
 ```bash
 cd backend
 npm run seed
 ```
 
-### 3. Running the Application
+### 4. Running the Application
 
 In **Terminal 1** (Start Backend API on port 5000):
 ```bash
