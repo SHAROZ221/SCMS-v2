@@ -7,6 +7,7 @@
 [![Express](https://img.shields.io/badge/Express-REST_API-lightgrey.svg)](https://expressjs.com/)
 [![Sequelize ORM](https://img.shields.io/badge/Sequelize-ORM-52B0E7.svg)](https://sequelize.org/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-v14%2B-336791.svg)](https://www.postgresql.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)]()
 
 ---
@@ -216,4 +217,7 @@ npm run test:api
 ---
 
 ## 9. License & Credits
+
+This project is licensed under the [MIT License](LICENSE) - see the [LICENSE](LICENSE) file for details.
+
 Developed by **Sharoz** for academic portfolio showcase, inspired by hands-on training at Samsung Customer Care Service Center.
