@@ -53,12 +53,23 @@ const DashboardPage = () => {
 
   const fetchDashboardData = async () => {
     try {
-      const [statsRes, trendsRes] = await Promise.all([
+      const [statsRes, trendsRes] = await Promise.allSettled([
         api.get('/reports/dashboard-stats'),
         api.get('/reports/ticket-trends'),
       ]);
-      setStats(statsRes.data);
-      setTrends(trendsRes.data.trends || []);
+
+      if (statsRes.status === 'fulfilled') {
+        setStats(statsRes.value.data);
+      } else {
+        console.error('Failed to load stats:', statsRes.reason);
+        toast.error('Failed to load dashboard statistics.');
+      }
+
+      if (trendsRes.status === 'fulfilled') {
+        setTrends(trendsRes.value.data.trends || []);
+      } else {
+        console.warn('Failed to load trends:', trendsRes.reason);
+      }
     } catch (err) {
       console.error('Dashboard load error:', err);
       toast.error('Failed to load dashboard statistics.');
